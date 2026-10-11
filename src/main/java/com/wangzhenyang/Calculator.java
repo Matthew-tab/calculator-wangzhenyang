@@ -1,0 +1,29 @@
+package com.wangzhenyang;
+
+import org.apache.commons.lang3.StringUtils;
+
+public class Calculator {
+    public double eval(String a, String op, String b) {
+        if (StringUtils.isBlank(a) || StringUtils.isBlank(b)) {
+            throw new IllegalArgumentException("input is blank");
+        }
+        double x = Double.parseDouble(a);
+        double y = Double.parseDouble(b);
+        // parseDouble 会静默接受 "Infinity"/"NaN"，这里拦截掉
+        if (!Double.isFinite(x) || !Double.isFinite(y)) {
+            throw new IllegalArgumentException("input is not a finite number");
+        }
+        return switch (op) {
+            case "+" -> x + y;
+            case "-" -> x - y;
+            case "*" -> x * y;
+            case "/" -> {
+                if (y == 0) {
+                    throw new ArithmeticException("division by zero");
+                }
+                yield x / y;
+            }
+            default -> throw new IllegalArgumentException(op);
+        };
+    }
+}
