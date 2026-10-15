@@ -11,6 +11,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
+    <!-- Keep JaCoCo compatible with the local project path; CI overrides this property for test-only execution. -->
+    <jacoco.agent.argLine>-javaagent:${settings.localRepository}/org/jacoco/org.jacoco.agent/0.8.13/org.jacoco.agent-0.8.13-runtime.jar=destfile=target/jacoco.exec</jacoco.agent.argLine>
   </properties>
 
   <dependencies>
@@ -34,8 +36,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.5.2</version>
         <configuration>
-          <!-- 项目路径含中文时 prepare-agent 的绝对路径传参乱码、exec 不生成，这里手动挂 agent 并用相对路径 -->
-          <argLine>-javaagent:${settings.localRepository}/org/jacoco/org.jacoco.agent/0.8.13/org.jacoco.agent-0.8.13-runtime.jar=destfile=target/jacoco.exec</argLine>
+          <argLine>${jacoco.agent.argLine}</argLine>
         </configuration>
       </plugin>
       <plugin>

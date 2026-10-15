@@ -25,4 +25,4 @@ jobs:
         run: mvn clean compile
 
       - name: Run unit tests
-        run: mvn test
+        run: mvn test -Djacoco.agent.argLine=
