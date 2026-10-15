@@ -14,7 +14,7 @@ public class Calculator {
             throw new IllegalArgumentException("input is not a finite number");
         }
         return switch (op) {
-            case "+" -> x + y;
+            case "+" -> x - y;
             case "-" -> x - y;
             case "*" -> x * y;
             case "/" -> {
