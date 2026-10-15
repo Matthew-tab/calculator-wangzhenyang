@@ -1,5 +1,7 @@
 # Calculator — Maven CLI 计算器
 
+![Calculator CI](https://github.com/Matthew-tab/calculator-wangzhenyang/actions/workflows/ci-calculator.yml/badge.svg)
+
 软件开发工具课程 Lab 3 / Lab 4 项目：基于 Maven 的命令行计算器，支持加减乘除，并配套完整的 JUnit 单元测试、JaCoCo 覆盖率报告与 PMD 静态分析。
 
 ## 环境
