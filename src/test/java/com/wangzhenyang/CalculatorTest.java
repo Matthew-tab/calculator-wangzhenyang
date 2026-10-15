@@ -22,7 +22,6 @@ class CalculatorTest {
                 () -> c.eval("", "+", "2"));
     }
 
-    // 以下为自己新增的测试用例
     @Test void subtractWorks() {
         assertEquals(1.0, c.eval("5", "-", "4"));
     }
@@ -41,7 +40,6 @@ class CalculatorTest {
                 () -> c.eval("5", "/", "0"));
     }
 
-    // Lab 4 新增：边界值与错误路径测试
     @Test void blankSecondOperandThrows() {
         assertThrows(IllegalArgumentException.class,
                 () -> c.eval("2", "+", " "));
@@ -64,7 +62,6 @@ class CalculatorTest {
         assertEquals(1.0E308, c.eval("1e308", "*", "1"), 1e293);
     }
 
-    // 边界值测试：parseDouble 会不会静默接受 Infinity / NaN 这类非法输入？
     @Test void nonFiniteInputThrows() {
         assertThrows(IllegalArgumentException.class,
                 () -> c.eval("Infinity", "+", "2"));
@@ -80,7 +77,6 @@ class CalculatorTest {
                 () -> c.eval("2", "+", "Infinity"));
     }
 
-    // 参数化测试：同一个方法用多组输入反复运行
     @ParameterizedTest
     @CsvSource({
             "2, +, 3, 5.0",

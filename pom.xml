@@ -11,7 +11,6 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
-    <!-- Keep JaCoCo compatible with the local project path; CI overrides this property for test-only execution. -->
     <jacoco.agent.argLine>-javaagent:${settings.localRepository}/org/jacoco/org.jacoco.agent/0.8.13/org.jacoco.agent-0.8.13-runtime.jar=destfile=target/jacoco.exec</jacoco.agent.argLine>
   </properties>
 
@@ -52,7 +51,6 @@
           </execution>
         </executions>
       </plugin>
-      <!-- Lab 4: JaCoCo 生成代码覆盖率报告 -->
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -70,7 +68,6 @@
           </execution>
         </executions>
       </plugin>
-      <!-- Lab 4: PMD 静态代码分析 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>

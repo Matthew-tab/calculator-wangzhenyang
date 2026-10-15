@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// 静态分析发现 App 入口的两个缺陷（不校验参数个数、异常裸奔）后，修复并补的回归测试
 class AppTest {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private final ByteArrayOutputStream err = new ByteArrayOutputStream();

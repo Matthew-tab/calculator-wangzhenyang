@@ -9,7 +9,6 @@ public class Calculator {
         }
         double x = Double.parseDouble(a);
         double y = Double.parseDouble(b);
-        // parseDouble 会静默接受 "Infinity"/"NaN"，这里拦截掉
         if (!Double.isFinite(x) || !Double.isFinite(y)) {
             throw new IllegalArgumentException("input is not a finite number");
         }
